@@ -12,7 +12,6 @@ on:
                 type: string
                 required: false
                 default: web
-
 jobs:
   build:
     runs-on: ubuntu-latest

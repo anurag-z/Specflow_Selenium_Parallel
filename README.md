@@ -1,9 +1,34 @@
-# SpecFlow Selenium Framework
+# SpecFlow Parallel Test Execution with Selenium
 
 ## Overview
 
-This repository contains a **SpecFlow** Selenium framework that uses **Dependency Injection** and **Page Object Model (POM)** pattern for testing web applications and also support **Parallel Execution** . The framework is designed to be used with the following technologies:
+This repository contains a **SpecFlow** Selenium framework that uses **Dependency Injection** and **Page Object Model (POM)** pattern for testing web applications and also support **Parallel Execution**  using NUnit 4.x. 
 
+## 1. SpecFlow Parallel Test Execution
+
+SpecFlow Parallel Test Execution with SpecFlow and NUnit 4.x is mainly aimed at demonstrating how we can run SpecFlow scenarios in parallel using the NUnit 4.x Parallelizable Attribute `[Parallelizable]`.
+
+With SpecFlow 2.0, parallel execution is supported using xUnit and NUnit frameworks out-of-the-box.
+
+## 2. Extent Report integration with Specflow and Selenium C#
+
+This Framework will create extent report using Specflow and Selenium C# and to make it Thread safe we have ThreadLocal for managing Parallel execution.
+
+![Extentreport](https://github.com/user-attachments/assets/ce852d69-70e2-4dd9-bff5-4913243aecc7)
+
+## 3. Integration of GitAction workflow and Parallel Execution in Cloud 
+
+To Execute our testcase we have created a yml file and we have used pre-defined git action to execute our scripts in headfull mode.
+Generate Extent Reports and log will attached as Artifact to Build. As shown below:
+
+![Gitaction](https://github.com/user-attachments/assets/e950586f-0304-43e4-8ab3-c36af155817e)
+
+## 4. Generate Logs using Log4net
+
+This Framework support Generation of logs for Sequential as well Parallel Execution in One log file(Used Shared File strategy)
+
+
+# The framework is designed to be used with the following technologies:
 - **SpecFlow** (BDD for C#)
 - **Selenium WebDriver** (for browser automation)
 - **NUnit 4.x** (for test execution)
@@ -55,26 +80,10 @@ The framework supports automation for **Parallel Execution** and is easily exten
      - Install Selenium via [NuGet Must Haves](http://nugetmusthaves.com/Tag/selenium)
    - **Selenium Support Package**
 
-3. **Download WebDriver Drivers**:
-   - Create a folder named `dependencies` in the project.
-   - Download the appropriate drivers (Chrome, IE, Edge) via **NuGet** packages.
-   - Right-click on `chromedriver.exe`, select **Properties**, and ensure:
-     - **Build Action** is set to **Content**.
-     - **Copy to Output Directory** is set to **Copy Always**.
-   - This ensures that the `chromedriver.exe` is placed in the output directory for proper execution.
-
-4. **Install SpecFlow Extension in Visual Studio**:
+3. **Install SpecFlow Extension in Visual Studio**:
    - Go to `Tools > Extensions and Updates > Online`.
    - Search for **SpecFlow** and install the extension. Restart Visual Studio after installation.
 
-
-## Setting Up Enhanced Reporting
-
-1. **Install SpecRun**: SpecRun is used for enhanced test reporting and IDE intellisense.
-   - Install via NuGet.
-   
-2. **Configure SpecRun**:
-   - Change the `stopAfterFailures` attribute to `0` in the configuration file. This setting tells SpecRun not to stop after any failures and to continue running all tests.
 
 
 
